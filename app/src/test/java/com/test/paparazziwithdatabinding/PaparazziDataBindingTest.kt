@@ -15,6 +15,7 @@ import androidx.compose.ui.text.style.TextDecoration
 import app.cash.paparazzi.DeviceConfig.Companion.PIXEL_5
 import app.cash.paparazzi.Paparazzi
 import com.test.paparazziwithdatabinding.databinding.FragmentDashboardBinding
+import com.test.paparazziwithdatabinding.ui.HelloPaparazzi
 import org.junit.Rule
 import org.junit.Test
 
@@ -35,40 +36,5 @@ class PaparazziDataBindingTest {
     @Test
     fun compose() {
         paparazzi.snapshot { HelloPaparazzi() }
-    }
-}
-
-@Suppress("TestFunctionName")
-@Composable
-fun HelloPaparazzi() {
-    val text = "Hello, Paparazzi"
-    Column(
-        Modifier
-            .background(Color.White)
-            .fillMaxSize()
-            .wrapContentSize()
-    ) {
-        Text(text)
-        Text(text, style = TextStyle(fontFamily = FontFamily.Cursive))
-        Text(
-            text = text,
-            style = TextStyle(textDecoration = TextDecoration.LineThrough)
-        )
-        Text(
-            text = text,
-            style = TextStyle(textDecoration = TextDecoration.Underline)
-        )
-        Text(
-            text = text,
-            style = TextStyle(
-                textDecoration = TextDecoration.combine(
-                    listOf(
-                        TextDecoration.Underline,
-                        TextDecoration.LineThrough
-                    )
-                ),
-                fontWeight = FontWeight.Bold
-            )
-        )
     }
 }
